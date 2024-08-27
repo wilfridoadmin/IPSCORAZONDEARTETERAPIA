@@ -4,6 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginContainer = document.getElementById('login');
     const logoutButton = document.getElementById('logout');
     const patientList = document.getElementById('patientList').getElementsByTagName('tbody')[0];
+    const patientForm = document.getElementById('patientForm');
+    const editIndex = document.getElementById('editIndex');
+
+    let patients = [];
 
     loginForm.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -23,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         panelControl.style.display = 'none';
         document.getElementById('username').value = '';
         document.getElementById('password').value = '';
+        editIndex.value = '';
     });
 
     document.getElementById('savePatient').addEventListener('click', () => {
@@ -38,15 +43,25 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const row = patientList.insertRow();
-        row.insertCell(0).textContent = id;
-        row.insertCell(1).textContent = fullName;
-        row.insertCell(2).textContent = age;
-        row.insertCell(3).textContent = entryDate;
-        row.insertCell(4).textContent = observations;
-        row.insertCell(5).textContent = documentInput.files[0] ? documentInput.files[0].name : '';
+        const patient = {
+            id,
+            fullName,
+            age,
+            entryDate,
+            observations,
+            documentName: documentInput.files[0] ? documentInput.files[0].name : ''
+        };
 
-        document.getElementById('patientForm').reset();
+        if (editIndex.value !== '') {
+            const index = parseInt(editIndex.value, 10);
+            patients[index] = patient;
+        } else {
+            patients.push(patient);
+        }
+
+        updatePatientList();
+        patientForm.reset();
+        editIndex.value = '';
     });
 
     document.getElementById('printPatient').addEventListener('click', () => {
@@ -86,4 +101,42 @@ document.addEventListener('DOMContentLoaded', () => {
         printWindow.focus();
         printWindow.print();
     });
+
+    function updatePatientList() {
+        patientList.innerHTML = '';
+        patients.forEach((patient, index) => {
+            const row = patientList.insertRow();
+            row.insertCell(0).textContent = patient.id;
+            row.insertCell(1).textContent = patient.fullName;
+            row.insertCell(2).textContent = patient.age;
+            row.insertCell(3).textContent = patient.entryDate;
+            row.insertCell(4).textContent = patient.observations;
+            row.insertCell(5).textContent = patient.documentName;
+
+            const actionsCell = row.insertCell(6);
+            const editButton = document.createElement('button');
+            editButton.textContent = 'Editar';
+            editButton.classList.add('edit');
+            editButton.addEventListener('click', () => {
+                document.getElementById('patientId').value = patient.id;
+                document.getElementById('fullName').value = patient.fullName;
+                document.getElementById('age').value = patient.age;
+                document.getElementById('entryDate').value = patient.entryDate;
+                document.getElementById('observations').value = patient.observations;
+                editIndex.value = index;
+            });
+
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Eliminar';
+            deleteButton.classList.add('delete');
+            deleteButton.addEventListener('click', () => {
+                patients.splice(index, 1);
+                updatePatientList();
+            });
+
+            actionsCell.appendChild(editButton);
+            actionsCell.appendChild(deleteButton);
+        });
+    }
 });
+
