@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('loginForm');
-    const panelControl = document.getElementById('panelControl');
+    const dashboard = document.getElementById('dashboard');
     const loginContainer = document.getElementById('login');
     const logoutButton = document.getElementById('logout');
     const patientList = document.getElementById('patientList').getElementsByTagName('tbody')[0];
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if ((username === 'admin' && password === '221099') || (username === 'psicologa' && password === 'michell2210')) {
             loginContainer.style.display = 'none';
-            panelControl.style.display = 'block';
+            dashboard.style.display = 'block';
         } else {
             alert('Usuario o contraseña incorrectos');
         }
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     logoutButton.addEventListener('click', () => {
         loginContainer.style.display = 'block';
-        panelControl.style.display = 'none';
+        dashboard.style.display = 'none';
         document.getElementById('username').value = '';
         document.getElementById('password').value = '';
         editIndex.value = '';
@@ -139,6 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
 
 });
 
