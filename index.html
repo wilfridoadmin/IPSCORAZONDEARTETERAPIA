@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corazón de Arte Terapia</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="loginPage">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Usuario" required>
+            <input type="password" id="password" placeholder="Contraseña" required>
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+    </div>
+
+    <div id="dashboard" class="hidden">
+        <h2>Dashboard - Gestión de Pacientes</h2>
+        <form id="patientForm">
+            <input type="text" id="patientId" placeholder="ID" required>
+            <input type="text" id="fullName" placeholder="Nombre Completo" required>
+            <input type="number" id="age" placeholder="Edad" required>
+            <input type="date" id="admissionDate" required>
+            <textarea id="observations" placeholder="Observaciones"></textarea>
+            <input type="file" id="document" required>
+            <button type="submit">Agregar/Editar Paciente</button>
+        </form>
+
+        <h3>Lista de Pacientes</h3>
+        <table id="patientTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre Completo</th>
+                    <th>Edad</th>
+                    <th>Fecha de Ingreso</th>
+                    <th>Observaciones</th>
+                    <th>Documento</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se agregarán las filas de pacientes -->
+            </tbody>
+        </table>
+
+        <button id="printButton">Imprimir Detalles del Paciente</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
