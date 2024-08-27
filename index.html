@@ -23,7 +23,8 @@
         <h1>Panel de Control</h1>
         <button id="logout">Cerrar Sesión</button>
         <form id="patientForm">
-            <h2>Agregar Paciente</h2>
+            <h2>Agregar/Editar Paciente</h2>
+            <input type="hidden" id="editIndex">
             <label for="patientId">ID:</label>
             <input type="text" id="patientId">
             <label for="fullName">Nombre Completo:</label>
@@ -50,6 +51,7 @@
                     <th>Fecha de Ingreso</th>
                     <th>Observaciones</th>
                     <th>Documento</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
