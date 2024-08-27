@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Corazón de Arte Terapia</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
     <div id="login" class="container">
@@ -22,44 +21,45 @@
     <div id="dashboard" class="container" style="display: none;">
         <h1>Dashboard</h1>
         <button id="logout">Cerrar Sesión</button>
-        <h2>Pacientes Registrados</h2>
-        <div id="patientPanel">
-            <form id="patientForm">
-                <h2>Agregar/Editar Paciente</h2>
-                <input type="hidden" id="editIndex">
-                <label for="patientId">ID:</label>
-                <input type="text" id="patientId">
-                <label for="fullName">Nombre Completo:</label>
-                <input type="text" id="fullName">
-                <label for="age">Edad:</label>
-                <input type="number" id="age">
-                <label for="entryDate">Fecha de Ingreso:</label>
-                <input type="date" id="entryDate">
-                <label for="observations">Observaciones:</label>
-                <textarea id="observations"></textarea>
-                <label for="document">Cargar Documento:</label>
-                <input type="file" id="document">
-                <button type="button" id="savePatient">Guardar</button>
-                <button type="button" id="printPatient">Imprimir</button>
-            </form>
-            <h2>Listado de Pacientes</h2>
-            <table id="patientList">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre Completo</th>
-                        <th>Edad</th>
-                        <th>Fecha de Ingreso</th>
-                        <th>Observaciones</th>
-                        <th>Documento</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Aquí se llenarán los pacientes -->
-                </tbody>
-            </table>
-        </div>
+        <h2>Panel de Control de Pacientes</h2>
+        <form id="patientForm">
+            <h2>Agregar/Editar Paciente</h2>
+            <input type="hidden" id="editIndex">
+            <label for="patientId">ID:</label>
+            <input type="text" id="patientId">
+            <label for="fullName">Nombre Completo:</label>
+            <input type="text" id="fullName">
+            <label for="age">Edad:</label>
+            <input type="number" id="age">
+            <label for="entryDate">Fecha de Ingreso:</label>
+            <input type="date" id="entryDate">
+            <label for="observations">Observaciones:</label>
+            <textarea id="observations"></textarea>
+            <label for="document">Cargar Documento:</label>
+            <input type="file" id="document">
+            <button type="button" id="savePatient">Guardar</button>
+            <button type="button" id="printPatient">Imprimir</button>
+        </form>
+        <h2>Listado de Pacientes</h2>
+        <table id="patientList">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre Completo</th>
+                    <th>Edad</th>
+                    <th>Fecha de Ingreso</th>
+                    <th>Observaciones</th>
+                    <th>Documento</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se llenarán los pacientes -->
+            </tbody>
+        </table>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
+
