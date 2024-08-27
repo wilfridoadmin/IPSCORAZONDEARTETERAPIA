@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corazón de Arte Terapia</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div id="login" class="container">
+        <h1>Corazón de Arte Terapia</h1>
+        <form id="loginForm">
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" required>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" required>
+            <button type="submit">Ingresar</button>
+        </form>
+    </div>
+
+    <div id="panelControl" class="container" style="display: none;">
+        <h1>Panel de Control</h1>
+        <button id="logout">Cerrar Sesión</button>
+        <form id="patientForm">
+            <h2>Agregar Paciente</h2>
+            <label for="patientId">ID:</label>
+            <input type="text" id="patientId">
+            <label for="fullName">Nombre Completo:</label>
+            <input type="text" id="fullName">
+            <label for="age">Edad:</label>
+            <input type="number" id="age">
+            <label for="entryDate">Fecha de Ingreso:</label>
+            <input type="date" id="entryDate">
+            <label for="observations">Observaciones:</label>
+            <textarea id="observations"></textarea>
+            <label for="document">Cargar Documento:</label>
+            <input type="file" id="document">
+            <button type="button" id="savePatient">Guardar</button>
+            <button type="button" id="printPatient">Imprimir</button>
+        </form>
+
+        <h2>Listado de Pacientes</h2>
+        <table id="patientList">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre Completo</th>
+                    <th>Edad</th>
+                    <th>Fecha de Ingreso</th>
+                    <th>Observaciones</th>
+                    <th>Documento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se llenarán los pacientes -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
